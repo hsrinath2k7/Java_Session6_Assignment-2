@@ -1,0 +1,129 @@
+//Abstract Class
+
+package Session6;
+
+public abstract class Instrument {
+	
+	
+	String name;
+	
+	
+	public abstract void play();
+	
+
+}
+
+// Extends to another Abstract class
+
+package Session6;
+
+public abstract class StringedInstrument extends Instrument {
+	
+	int numberOfStrings;	
+	
+}
+
+
+
+// Extended to one subclass
+
+package Session6;
+
+public class ElectricGuitar extends StringedInstrument {
+
+	public ElectricGuitar()
+	{
+		name = "Electric Guitar";
+		numberOfStrings = 7;
+		
+	}
+	
+	
+	public ElectricGuitar(int numberofStrings)
+	{
+		name = "Classical Electric Guitar";
+		this.numberOfStrings = numberofStrings;
+	}
+	
+	
+	@Override
+	public void play() {
+		// TODO Auto-generated method stub
+		
+		System.out.println("The " + name + " has " + numberOfStrings + " strings.");
+		
+	}
+
+}
+
+
+// Extended the abstract class to another class
+
+package Session6;
+
+public class ElectricBassGuitar extends StringedInstrument {
+	
+	public ElectricBassGuitar()
+	{
+		name = "Electric Bass Guitar";
+		numberOfStrings = 12;
+		
+	}
+	
+	
+	public ElectricBassGuitar(int numberofStrings)
+	{
+		name = "Classical Electric Bass Guitar";
+		this.numberOfStrings = numberofStrings;
+	}
+	
+	@Override
+	public void play() {
+		// TODO Auto-generated method stub
+		
+		System.out.println("The " + name + " has " + numberOfStrings + " strings.");
+		
+	}
+
+}
+
+
+//Main Class
+
+package Session6;
+
+public class GuitarDetails {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		// Creating Reference variable for non parameterized constructor
+		ElectricGuitar Elecguit = new ElectricGuitar();
+		ElectricBassGuitar Elecbassguit = new ElectricBassGuitar();
+		
+		// Calling the Play method using the non parameterized constructor		
+		Elecguit.play();
+		Elecbassguit.play();
+		
+		// Creating Reference variable for non parameterized constructor
+		
+		ElectricGuitar Elecguit1 = new ElectricGuitar(9);
+		ElectricBassGuitar Elecbassguit1 = new ElectricBassGuitar(15);
+		
+		Elecguit1.play();
+		Elecbassguit1.play();
+		
+	}
+
+}
+
+
+/* Ouput
+
+The Electric Guitar has 7 strings.
+The Electric Bass Guitar has 12 strings.
+The Classical Electric Guitar has 9 strings.
+The Classical Electric Bass Guitar has 15 strings.
+
+*/
